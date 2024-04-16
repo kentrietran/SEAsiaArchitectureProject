@@ -3,10 +3,6 @@ from flask import render_template
 from flask import Response, request, jsonify
 app = Flask(__name__)
 
-home_images ={
-
-}
-
 lessons = {
 "1":{
     "lesson_id": 1,
@@ -20,7 +16,7 @@ lessons = {
 },
 "2":{
     "lesson_id": 2,
-    "title": "Top 3 famous Architectural Styles in Thailand",
+    "title": "Top 3 famous Architectural Styles in Indonesia",
     "card_image": "images/dragon_roof.png",
     "card_text_title": ["Roof Finials", "Roof Tiers", "Indented Corners"],
     "card_text": ["Roof finials, also known as chofa, are intricate decorative elements commonly found in Thai architecture.", "...", ".."],
@@ -30,7 +26,7 @@ lessons = {
 },
 "3":{
     "lesson_id": 3,
-    "title": "Top 3 famous Architectural Styles in Thailand",
+    "title": "Top 3 famous Architectural Styles in Malaysia",
     "card_image": "images/dragon_roof.png",
     "card_text_title": ["Roof Finials", "Roof Tiers", "Indented Corners"],
     "card_text": ["Roof finials, also known as chofa, are intricate decorative elements commonly found in Thai architecture.", "...", ".."],
@@ -40,7 +36,7 @@ lessons = {
 },
 "4":{
     "lesson_id": 4,
-    "title": "Top 3 famous Architectural Styles in Thailand",
+    "title": "Top 3 famous Architectural Styles in Philippines",
     "card_image": "images/dragon_roof.png",
     "card_text_title": ["Roof Finials", "Roof Tiers", "Indented Corners"],
     "card_text": ["Roof finials, also known as chofa, are intricate decorative elements commonly found in Thai architecture.", "...", ".."],
@@ -73,9 +69,13 @@ def home():
 def home2():
    return render_template('home2.html')
 
-@app.route('/learn')
-def learn():
-    return render_template('learn.html')
+@app.route('/learn/<lesson_id>')
+def learn(lesson_id):
+    lesson = lessons.get(lesson_id)
+    if lesson:
+        return render_template('learn.html', lesson=lesson)
+    else:
+        return "Lesson not found", 404
 
 @app.route('/quiz')
 def quiz():
