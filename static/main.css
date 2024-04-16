@@ -7,10 +7,12 @@
     justify-content: center;
     align-items: center;
     height: 25vw;
+    margin: 0px;
 }
 /* Style the heading on home.html */
 #click-to-start-text {
     font-size: 2rem; /* Adjust as needed */
+    margin: 0px;
 }
 /* Style the "Start" button */
 .btn-primary {
