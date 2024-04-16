@@ -1,3 +1,11 @@
+/* general */
+
+div.container-fluid{
+    margin: 0;
+    padding: 0;
+}
+
+
 /* home.html */
 
 /* Center the content horizontally and vertically */
@@ -23,4 +31,17 @@
 }
 .btn-primary:hover {
     background-color: darkblue; /* Darken button color on hover */
+}
+div.row{
+    padding-bottom: 15px;
+}
+
+/* home2.html */
+
+#click-country-text{
+    font-size: 2rem; /* Adjust as needed */
+    font-weight: bold;
+    margin: 0px;
+    text-align: center;
+    padding: 15px 0px 15px 0px;
 }
