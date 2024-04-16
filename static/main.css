@@ -1,3 +1,24 @@
-#click-to-start-text{
-    text-align: center;
+/* home.html */
+
+/* Center the content horizontally and vertically */
+.mt-5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25vw;
+}
+/* Style the heading on home.html */
+#click-to-start-text {
+    font-size: 2rem; /* Adjust as needed */
+}
+/* Style the "Start" button */
+.btn-primary {
+    margin-top: 1rem; /* Adjust spacing as needed */
+    background-color: blue; /* Change button color to green */
+    color: white; /* Text color */
+    border-color: blue; /* Border color */
+}
+.btn-primary:hover {
+    background-color: darkblue; /* Darken button color on hover */
 }
