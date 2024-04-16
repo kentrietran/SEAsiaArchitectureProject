@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify
+from flask import redirect, url_for
+
 app = Flask(__name__)
 
 lessons = {
@@ -53,21 +55,25 @@ lessons = {
 quiz = {
 "1": {
 "image": "images/quiz2.png",
+"options": ["Indonesia", "Thailand", "Philippines", "Malaysia"],
 "answer": "Indonesia",
 "explanation": "This building has Toba Batak architecturual styles like a curved boat roof which is found in Indonesian architecture.",
 },
 "2": {
 "image": "images/quiz1.png",
+"options": ["Indonesia", "Thailand", "Philippines", "Malaysia"],
 "answer": "Thailand",
 "explanation": "This building has dragon roof finials, tiered roofs, and a tower with indented corners. These 3 architectural styles are found in Thai architecture.",
 },
 "3": {
 "image": "images/quiz4.png",
+"options": ["Indonesia", "Thailand", "Philippines", "Malaysia"],
 "answer": "Philippines",
 "explanation": "",
 },
 "4": {
 "image": "images/quiz3.png",
+"options": ["Indonesia", "Thailand", "Philippines", "Malaysia"],
 "answer": "Malaysia",
 "explanation": "",
 },
@@ -99,9 +105,35 @@ def lesson_detail(lesson_id, index):
     else:
         return "Lesson not found", 404
 
-@app.route('/quiz')
-def quiz():
-   return render_template('quiz.html')
+quiz_answers = {}
+
+@app.route('/quiz/<int:quiz_id>', methods=['GET', 'POST'])
+def quiz_page(quiz_id):
+    current_quiz = quiz.get(str(quiz_id))
+    if not current_quiz:
+        return "Quiz not found", 404
+
+    if request.method == 'POST':
+        selected_option = request.form['option']
+        quiz_answers[str(quiz_id)] = selected_option
+
+        if len(quiz_answers) == len(quiz):
+            num_correct = sum(1 for quiz_id, answer in quiz_answers.items() if quiz[quiz_id]['answer'] == answer)
+            total_questions = len(quiz)
+            score = f"{num_correct}/{total_questions}"
+            return render_template('quiz_results.html', score=score)
+        else:
+            next_quiz_id = quiz_id + 1
+            if next_quiz_id <= len(quiz):
+                return redirect(url_for('quiz_page', quiz_id=next_quiz_id))
+            else:
+                return redirect(url_for('quiz_results'))
+
+    return render_template('quiz.html', quiz=current_quiz, quiz_id=quiz_id)
+
+@app.route('/quiz_results')
+def quiz_results():
+    return render_template('quiz_results.html', quiz_answers=quiz_answers, quiz=quiz)
 
 # AJAX FUNCTIONS
 

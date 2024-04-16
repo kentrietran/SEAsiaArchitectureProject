@@ -1,10 +1,84 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
-    <div class="container-fluid">
-        <h4>Match the architectural style to the Country</h4>
+<div class="container">
+    <h1>Match the architectural style to the Country</h1>
+    <p>Score: {{ score }}</p>
+    <div class="quiz-question">
+        <img src="{{ url_for('static', filename=quiz['image']) }}">
+        <p>Options:</p>
+        <ul>
+            {% for option in quiz['options'] %}
+            <li>{{ option }}</li>
+            {% endfor %}
+        </ul>
+        <form id="quizForm" method="post">
+            <label for="answer">Select your answer:</label>
+            <select name="option" id="answer">
+                {% for option in quiz['options'] %}
+                <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+            <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
 
-        
+<!-- Modal Popup -->
+<div class="modal fade" id="quizModal" tabindex="-1" role="dialog" aria-labelledby="quizModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="quizModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="quizModalBody">
+                <!-- Popup content will be dynamically inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="nextQuestionBtn" type="button" class="btn btn-primary">Next Question</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const quizForm = document.getElementById('quizForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const quizModal = document.getElementById('quizModal');
+        const quizModalLabel = document.getElementById('quizModalLabel');
+        const quizModalBody = document.getElementById('quizModalBody');
+        const nextQuestionBtn = document.getElementById('nextQuestionBtn');
+
+        submitBtn.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get selected option value
+            const selectedOption = document.getElementById('answer').value;
+            // Check if the selected option is correct
+            const isCorrect = '{{ quiz['answer'] }}' === selectedOption;
+
+            // Prepare popup content
+            const popupContent = isCorrect ? 'Correct!' : 'Wrong! ' + '{{ quiz['explanation'] }}';
+            quizModalLabel.textContent = isCorrect ? 'Correct Answer' : 'Wrong Answer';
+            quizModalBody.textContent = popupContent;
+
+            // Show the modal popup
+            $('#quizModal').modal('show');
+
+            // Handle next question button click
+            nextQuestionBtn.addEventListener('click', function () {
+                // Redirect to the next question page
+                window.location.href = '{{ url_for('quiz_page', quiz_id=quiz_id + 1) }}';
+            });
+        });
+    });
+</script>
+
 {% endblock %}
