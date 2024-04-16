@@ -6,13 +6,14 @@ app = Flask(__name__)
 lessons = {
 "1":{
     "lesson_id": 1,
+    "country": "Thailand",
     "title": "Top 3 famous Architectural Styles in Thailand",
-    "card_image": "images/dragon_roof.png",
+    "card_images": ["images/dragon_roof.png", "images/dragon_roof.png", "images/dragon_roof.png"],
     "card_text_title": ["Roof Finials", "Roof Tiers", "Indented Corners"],
     "card_text": ["Roof finials, also known as chofa, are intricate decorative elements commonly found in Thai architecture.", "...", ".."],
     "texts": ["These ornate structures adorn the apex of temple roofs and palace buildings, adding a touch of elegance and cultural significance to the skyline. Crafted with meticulous detail, roof finials often depict mythical creatures such as dragons or nāgas (half-human and half-serpent), symbolizing protection and prosperity in Thai culture. Their presence not only enhances the aesthetic appeal of the architecture but also serves as a reminder of Thailand's rich history and spiritual heritage.", "...", "..."],
-    "images": ["images/dragon_roof.png", "images/nagas_roof.png"],
-    "image_captions": ["Dragon roof finial", "Nagas roof finial"],
+    "images": [["images/dragon_roof.png", "images/nagas_roof.png"],["images/dragon_roof.png", "images/nagas_roof.png"], ["images/dragon_roof.png", "images/nagas_roof.png"]],
+    "image_captions": [["Dragon roof finial", "Nagas roof finial"], ["Dragon roof finial", "Nagas roof finial"], ["Dragon roof finial", "Nagas roof finial"]],
 },
 "2":{
     "lesson_id": 2,
@@ -74,6 +75,14 @@ def learn(lesson_id):
     lesson = lessons.get(lesson_id)
     if lesson:
         return render_template('learn.html', lesson=lesson)
+    else:
+        return "Lesson not found", 404
+
+@app.route('/lesson/<int:lesson_id>/<int:index>')
+def lesson_detail(lesson_id, index):
+    lesson = lessons.get(str(lesson_id))
+    if lesson:
+        return render_template('lesson.html', lesson=lesson, index=index)
     else:
         return "Lesson not found", 404
 

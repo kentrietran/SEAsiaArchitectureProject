@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ lesson['country'] }} - {{ lesson['card_text_title'][index] }}</h1>
+        <div class="container">
+            <p>{{ lesson['texts'][index] }}</p>
+            {% for i in range(0, lesson['images'][index]|length) %}
+                <img src="{{ url_for('static', filename=lesson['images'][index][i]) }}">
+                <p>{{ lesson['image_captions'][index][i] }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
