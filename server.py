@@ -14,8 +14,11 @@ def home():
 def learn():
    return render_template('learn.html')
 
+@app.route('/quiz')
+def quiz():
+   return render_template('quiz.html')
+
 # AJAX FUNCTIONS
 
-
 if __name__ == '__main__':
-   app.run(debug = True)
+   app.run(debug = True, port = 5001)
