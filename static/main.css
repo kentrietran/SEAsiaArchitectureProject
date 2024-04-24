@@ -4,7 +4,12 @@ div.container-fluid{
     margin: 0;
     padding: 0;
 }
-
+.navbar-light {
+    background-color: #f5f3f4ff !important;
+    color: #8b8c89 !important;
+    font-family: 'Roboto serif';
+    border-bottom: 2px #8b8c89 !important;
+}
 
 /* home.html */
 
@@ -21,19 +26,32 @@ div.container-fluid{
 #click-to-start-text {
     font-size: 2rem; /* Adjust as needed */
     margin: 0px;
+    font-family: 'Roboto serif';
+    text-align: center;
+    padding-bottom: 20px;
 }
 /* Style the "Start" button */
 .btn-primary {
     margin-top: 1rem; /* Adjust spacing as needed */
-    background-color: blue; /* Change button color to green */
-    color: white; /* Text color */
-    border-color: blue; /* Border color */
+    background-color: #a2d2ffff; /* Change button color to green */
+    color: black; /* Text color */
+    border-color: #a2d2ffff; /* Border color */
+    font-family: 'Roboto serif';
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    line-height: 35px;
 }
 .btn-primary:hover {
-    background-color: darkblue; /* Darken button color on hover */
+    background-color: rgb(124, 192, 255); /* Darken button color on hover */
+    border-color: rgb(124, 192, 255);
+    color: black;
 }
 div.row{
     padding-bottom: 15px;
+}
+body{
+    background-color: #daffefff;
 }
 
 /* home2.html */
