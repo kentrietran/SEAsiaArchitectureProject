@@ -92,6 +92,7 @@ div.container{
     padding: 15px 0px 15px 0px;
     font-family: 'Roboto serif';
     padding-bottom: 20px;
+    font-weight:500;
 }
 .lesson-card-description{
     background-color: #f5f3f4ff;

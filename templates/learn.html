@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="lesson-title-heading">{{ lesson['title'] }}</h1>
+    <div class="lesson-title-heading">{{ lesson['title'] }}</div>
     <div class="row">
     {% for i in range(0, lesson['card_text_title']|length) %}
         <div class="col-4">
