@@ -85,7 +85,7 @@ img.img-fluid.country-map-image:hover{
 div.container{
     padding: 0px 0px;
 }
-.lesson-title-heading{
+.learn-title-heading{
     font-size: 2rem; /* Adjust as needed */
     margin: 0px;
     text-align: center;
@@ -94,7 +94,7 @@ div.container{
     padding-bottom: 20px;
     font-weight:500;
 }
-.lesson-card-description{
+.learn-card-description{
     background-color: #f5f3f4ff;
     border: 1px solid #8b8c89;
     padding-left: 10px;
@@ -102,11 +102,11 @@ div.container{
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.lesson-card-picture{
+.learn-card-picture{
     width: 50rem;
     height: max-content;
 }
-.lesson-card:hover{
+.learn-card:hover{
     box-shadow: 10px 10px 5px lightblue;
 }
 .architectural-style-title{
@@ -133,4 +133,15 @@ div.container{
     background-color: rgb(124, 192, 255); /* Darken button color on hover */
     border-color: rgb(124, 192, 255);
     color: black;
+}
+
+/* lesson.html */
+.lesson-title-heading{
+    font-size: 2rem; /* Adjust as needed */
+    margin: 0px;
+    text-align: center;
+    padding: 15px 0px 15px 0px;
+    font-family: 'Roboto serif';
+    padding-bottom: 20px;
+    font-weight:500;
 }

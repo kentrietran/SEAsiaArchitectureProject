@@ -2,15 +2,15 @@
 
 {% block content %}
 <div class="container">
-    <div class="lesson-title-heading">{{ lesson['title'] }}</div>
+    <div class="learn-title-heading">{{ lesson['title'] }}</div>
     <div class="row">
     {% for i in range(0, lesson['card_text_title']|length) %}
         <div class="col-4">
             <div class="container">
                 <div class="architectural-style-title">{{ lesson['card_text_title'][i] }}</div>
-                    <div class="lesson-card">
-                        <img class="img-fluid lesson-card-picture" src="{{ url_for('static', filename=lesson['card_images'][i]) }}">
-                        <div class="lesson-card-description">
+                    <div class="learn-card">
+                        <img class="img-fluid learn-card-picture" src="{{ url_for('static', filename=lesson['card_images'][i]) }}">
+                        <div class="learn-card-description">
                             <p>{{ lesson['card_text'][i] }}</p>
                             <a id="learn-more-button" class="btn btn-primary" href="/lesson/{{ lesson['lesson_id'] }}/{{ i }}">Click here to learn more</a>
                         </div>

@@ -1,8 +1,8 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="container">
-        <h1>{{ lesson['country'] }} - {{ lesson['card_text_title'][index] }}</h1>
+<div class="container">
+    <div class="lesson-title-heading">{{ lesson['country'] }} - {{ lesson['card_text_title'][index] }}</div>
         <div class="container">
             <p>{{ lesson['texts'][index] }}</p>
             {% for i in range(0, lesson['images'][index]|length) %}
@@ -10,5 +10,5 @@
                 <p>{{ lesson['image_captions'][index][i] }}</p>
             {% endfor %}
         </div>
-    </div>
+</div>
 {% endblock %}
