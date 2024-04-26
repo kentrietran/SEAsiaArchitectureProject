@@ -105,6 +105,9 @@ div.container{
     width: 50rem;
     height: max-content;
 }
+.lesson-card:hover{
+    box-shadow: 10px 10px 5px lightblue;
+}
 .architectural-style-title{
     font-size: 1.5rem; /* Adjust as needed */
     margin: 0px;
