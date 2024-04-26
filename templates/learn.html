@@ -1,16 +1,23 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="container">
-        <h1>{{ lesson['title'] }}</h1>
-                {% for i in range(0, lesson['card_text_title']|length) %}
-                 <div class="container">
-                                <h5>{{ lesson['card_text_title'][i] }}</h5>
-                                <img src="{{ url_for('static', filename=lesson['card_images'][i]) }}">
-                                <p>{{ lesson['card_text'][i] }}</p>
-                                <p>Click <a href="/lesson/{{ lesson['lesson_id'] }}/{{ i }}">here</a> to learn more!</p>
-                      </div>
-                {% endfor %}
-          </div>
-
+<div class="container">
+    <h1 class="lesson-title-heading">{{ lesson['title'] }}</h1>
+    <div class="row">
+    {% for i in range(0, lesson['card_text_title']|length) %}
+        <div class="col-4">
+            <div class="container">
+                <div class="architectural-style-title">{{ lesson['card_text_title'][i] }}</div>
+                    <div>
+                        <img class="img-fluid lesson-card-picture" src="{{ url_for('static', filename=lesson['card_images'][i]) }}">
+                        <div class="lesson-card-description">
+                            <p>{{ lesson['card_text'][i] }}</p>
+                            <a id="learn-more-button" class="btn btn-primary" href="/lesson/{{ lesson['lesson_id'] }}/{{ i }}">Click here to learn more</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+ </div>
 {% endblock %}

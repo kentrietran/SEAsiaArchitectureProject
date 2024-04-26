@@ -1,4 +1,7 @@
 /* general */
+p, h5{
+    font-family: "Roboto serif";
+}
 
 div.container-fluid{
     margin: 0;
@@ -31,7 +34,7 @@ div.container-fluid{
     padding-bottom: 20px;
 }
 /* Style the "Start" button */
-.btn-primary {
+#home-start-button.btn-primary {
     margin-top: 1rem; /* Adjust spacing as needed */
     background-color: #a2d2ffff; /* Change button color to green */
     color: black; /* Text color */
@@ -42,7 +45,7 @@ div.container-fluid{
     text-align: center;
     line-height: 35px;
 }
-.btn-primary:hover {
+#home-start-button.btn-primary:hover {
     background-color: rgb(124, 192, 255); /* Darken button color on hover */
     border-color: rgb(124, 192, 255);
     color: black;
@@ -70,8 +73,60 @@ img.img-fluid.country-map-image:hover{
 }
 .zoom {
     transition: transform .2s; /* Animation */
-  }
+}
   
-  .zoom:hover {
+.zoom:hover {
     transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-  }
+}
+
+
+/* learn.html */
+
+div.container{
+    padding: 0px 0px;
+}
+.lesson-title-heading{
+    font-size: 2rem; /* Adjust as needed */
+    margin: 0px;
+    text-align: center;
+    padding: 15px 0px 15px 0px;
+    font-family: 'Roboto serif';
+    padding-bottom: 20px;
+}
+.lesson-card-description{
+    background-color: #f5f3f4ff;
+    border: 1px solid #8b8c89;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.lesson-card-picture{
+    width: 50rem;
+    height: max-content;
+}
+.architectural-style-title{
+    font-size: 1.5rem; /* Adjust as needed */
+    margin: 0px;
+    text-align: center;
+    padding: 15px 0px 15px 0px;
+    font-family: 'Roboto serif';
+    padding-bottom: 20px;
+}
+
+#learn-more-button.btn-primary {
+    background-color: #a2d2ffff; /* Change button color to green */
+    color: black; /* Text color */
+    border-color: #a2d2ffff; /* Border color */
+    font-family: 'Roboto serif';
+    text-align: center;
+    font-weight: bold;
+    line-height: 35px;
+    display: block;
+    margin: auto 0;
+}
+#learn-more-button.btn-primary:hover {
+    background-color: rgb(124, 192, 255); /* Darken button color on hover */
+    border-color: rgb(124, 192, 255);
+    color: black;
+}
