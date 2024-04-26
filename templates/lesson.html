@@ -2,23 +2,24 @@
 
 {% block content %}
 <div class="container">
+    <a href="/learn/{{ lesson['lesson_id'] }}" class="btn btn-secondary mb-3">Back to Overview</a>  <!-- Back button to learn page -->
     <div class="lesson-title-heading">{{ lesson['country'] }} - {{ lesson['card_text_title'][index] }}</div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-6">
-                    <div class="lesson-card">
-                        {% for i in range(0, lesson['images'][index]|length) %}
-                            <img class="img-fluid lesson-card-picture" src="{{ url_for('static', filename=lesson['images'][index][i]) }}">
-                            <div class="lesson-card-caption">
-                                <p>{{ lesson['image_captions'][index][i] }}</p>
-                            </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <div class="lesson-card">
+                    {% for i in range(0, lesson['images'][index]|length) %}
+                        <img class="img-fluid lesson-card-picture" src="{{ url_for('static', filename=lesson['images'][index][i]) }}" alt="{{ lesson['image_captions'][index][i] }}">
+                        <div class="lesson-card-caption">
+                            <p>{{ lesson['image_captions'][index][i] }}</p>
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col-6 lesson-text">
-                    <p>{{ lesson['texts'][index] }}</p>
-                </div>
+            </div>
+            <div class="col-6 lesson-text">
+                <p>{{ lesson['texts'][index] }}</p>
             </div>
         </div>
+    </div>
 </div>
 {% endblock %}
