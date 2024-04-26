@@ -3,12 +3,22 @@
 {% block content %}
 <div class="container">
     <div class="lesson-title-heading">{{ lesson['country'] }} - {{ lesson['card_text_title'][index] }}</div>
-        <div class="container">
-            <p>{{ lesson['texts'][index] }}</p>
-            {% for i in range(0, lesson['images'][index]|length) %}
-                <img src="{{ url_for('static', filename=lesson['images'][index][i]) }}">
-                <p>{{ lesson['image_captions'][index][i] }}</p>
-            {% endfor %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <div class="lesson-card">
+                        {% for i in range(0, lesson['images'][index]|length) %}
+                            <img class="img-fluid lesson-card-picture" src="{{ url_for('static', filename=lesson['images'][index][i]) }}">
+                            <div class="lesson-card-caption">
+                                <p>{{ lesson['image_captions'][index][i] }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-6 lesson-text">
+                    <p>{{ lesson['texts'][index] }}</p>
+                </div>
+            </div>
         </div>
 </div>
 {% endblock %}

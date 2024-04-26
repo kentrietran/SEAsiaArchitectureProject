@@ -1,6 +1,7 @@
 /* general */
-p, h5{
+p{
     font-family: "Roboto serif";
+    padding-bottom: 0px;
 }
 
 div.container-fluid{
@@ -144,4 +145,23 @@ div.container{
     font-family: 'Roboto serif';
     padding-bottom: 20px;
     font-weight:500;
+}
+.lesson-text{
+    border: 1px solid #8b8c89;
+    background-color: #f5f3f4ff;
+    height: max-content;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.lesson-card-caption{
+    background-color: #8b8c89;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+.lesson-card-picture{
+    width: 50rem;
+    height: max-content;
 }
