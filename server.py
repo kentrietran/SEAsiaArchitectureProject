@@ -116,20 +116,19 @@ def quiz_page(quiz_id):
     if request.method == 'POST':
         selected_option = request.form['option']
         quiz_answers[str(quiz_id)] = selected_option
+        next_quiz_id = quiz_id + 1
 
-        if len(quiz_answers) == len(quiz):
-            num_correct = sum(1 for quiz_id, answer in quiz_answers.items() if quiz[quiz_id]['answer'] == answer)
+        if next_quiz_id > len(quiz):
+            num_correct = sum(1 for qid, answer in quiz_answers.items() if quiz[qid]['answer'] == answer)
             total_questions = len(quiz)
             score = f"{num_correct}/{total_questions}"
-            return render_template('quiz_results.html', score=score)
+            return render_template('quiz_results.html', score=score, quiz_answers=quiz_answers, quiz=quiz)
         else:
-            next_quiz_id = quiz_id + 1
-            if next_quiz_id <= len(quiz):
-                return redirect(url_for('quiz_page', quiz_id=next_quiz_id))
-            else:
-                return redirect(url_for('quiz_results'))
+            return redirect(url_for('quiz_page', quiz_id=next_quiz_id))
 
-    return render_template('quiz.html', quiz=current_quiz, quiz_id=quiz_id)
+    is_last_question = (quiz_id == len(quiz))
+    return render_template('quiz.html', quiz=current_quiz, quiz_id=quiz_id, is_last_question=is_last_question)
+
 
 @app.route('/quiz_results')
 def quiz_results():

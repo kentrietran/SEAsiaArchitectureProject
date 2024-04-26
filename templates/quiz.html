@@ -49,36 +49,19 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const quizForm = document.getElementById('quizForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const quizModal = document.getElementById('quizModal');
-        const quizModalLabel = document.getElementById('quizModalLabel');
-        const quizModalBody = document.getElementById('quizModalBody');
         const nextQuestionBtn = document.getElementById('nextQuestionBtn');
-
-        submitBtn.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent form submission
-
-            // Get selected option value
-            const selectedOption = document.getElementById('answer').value;
-            // Check if the selected option is correct
-            const isCorrect = '{{ quiz['answer'] }}' === selectedOption;
-
-            // Prepare popup content
-            const popupContent = isCorrect ? 'Correct!' : 'Wrong! ' + '{{ quiz['explanation'] }}';
-            quizModalLabel.textContent = isCorrect ? 'Correct Answer' : 'Wrong Answer';
-            quizModalBody.textContent = popupContent;
-
-            // Show the modal popup
-            $('#quizModal').modal('show');
-
-            // Handle next question button click
-            nextQuestionBtn.addEventListener('click', function () {
-                // Redirect to the next question page
-                window.location.href = '{{ url_for('quiz_page', quiz_id=quiz_id + 1) }}';
-            });
+        const isLastQuestion = {{ is_last_question | tojson }};  // Convert boolean to JavaScript-readable format
+    
+        nextQuestionBtn.addEventListener('click', function () {
+            if (isLastQuestion) {
+                window.location.href = '{{ url_for("quiz_results") }}';  // Go to results page
+            } else {
+                window.location.href = window.location.href.replace(/\d+$/, function(n){ return ++n });  // Increment current quiz_id
+            }
         });
     });
 </script>
+    
+    
 
 {% endblock %}

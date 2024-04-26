@@ -6,14 +6,15 @@
     <h4>Match the Architectural Style to the Country</h4>
     <p>Thank you for completing the quiz! Here are your results:</p>
     <div class="results">
-        {% for question_id, user_answer in quiz_answers.items() %}
+        {% for question_id in quiz_answers.keys()|sort %}
         <div class="card mb-3">
             <div class="card-body">
                 <h5 class="card-title">Question {{ question_id }}</h5>
-                <p class="card-text">Your Answer: {{ user_answer }}</p>
+                <img src="{{ url_for('static', filename=quiz[question_id]['image']) }}" class="card-img-top" alt="Architectural Style Image">
+                <p class="card-text">Your Answer: {{ quiz_answers[question_id] }}</p>
                 <p class="card-text">Correct Answer: {{ quiz[question_id]['answer'] }}</p>
                 <p class="card-text">
-                    {% if user_answer == quiz[question_id]['answer'] %}
+                    {% if quiz_answers[question_id] == quiz[question_id]['answer'] %}
                     <span class="text-success">Correct!</span>
                     {% else %}
                     <span class="text-danger">Incorrect!</span>
