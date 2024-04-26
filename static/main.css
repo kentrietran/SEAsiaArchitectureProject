@@ -58,8 +58,20 @@ body{
 
 #click-country-text{
     font-size: 2rem; /* Adjust as needed */
-    font-weight: bold;
     margin: 0px;
     text-align: center;
     padding: 15px 0px 15px 0px;
+    font-family: 'Roboto serif';
+    padding-bottom: 20px;
 }
+img.img-fluid.country-map-image:hover{
+    border: 10px solid rgb(124, 192, 255);
+    box-shadow: 10px 10px 5px lightblue;
+}
+.zoom {
+    transition: transform .2s; /* Animation */
+  }
+  
+  .zoom:hover {
+    transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }

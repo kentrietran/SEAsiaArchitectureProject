@@ -1,8 +1,6 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-
   <div class="container-fluid">
 
     <p id="click-country-text">Click on a country to start exploring its architecture!</p>
@@ -11,7 +9,7 @@
 
         <div class="col-4">
           <a href="/learn/1">
-            <img class="img-fluid" src="{{ url_for('static', filename='images/thailand.png') }}" alt="map of Thailand">
+            <img class="img-fluid country-map-image zoom" src="{{ url_for('static', filename='images/thailand.png') }}" alt="map of Thailand">
           </a>
         </div>
 
@@ -21,13 +19,13 @@
 
             <div class="row">
               <a href="/learn/2">
-                <img class="img-fluid" src="{{ url_for('static', filename='images/indonesia.png') }}" alt="map of Indonesia">
+                <img class="img-fluid country-map-image zoom" src="{{ url_for('static', filename='images/indonesia.png') }}" alt="map of Indonesia">
               </a>
             </div>
 
             <div class="row">
               <a href="/learn/3">
-                <img class="img-fluid" src="{{ url_for('static', filename='images/malaysia.png') }}" alt="map of Malaysia">
+                <img class="img-fluid country-map-image zoom" src="{{ url_for('static', filename='images/malaysia.png') }}" alt="map of Malaysia">
               </a> 
             </div>
 
@@ -37,12 +35,11 @@
 
         <div class="col-4">
           <a href="/learn/4">
-            <img class="img-fluid" src="{{ url_for('static', filename='images/philippines.png') }}" alt="map of Philippines">
+            <img class="img-fluid country-map-image zoom" src="{{ url_for('static', filename='images/philippines.png') }}" alt="map of Philippines">
           </a>
         </div>
 
       </div>
 
   </div>
-
 {% endblock %}
