@@ -14,7 +14,10 @@ div.container-fluid{
     font-family: 'Roboto serif';
     border-bottom: 2px #8b8c89 !important;
 }
-
+.return-button{
+    background-color: #8b8c89 !important;
+    border: 1px solid #8b8c89 !important;
+}
 /* home.html */
 
 /* Center the content horizontally and vertically */
@@ -159,7 +162,7 @@ div.container{
     padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    
+    text-align: center;
 }
 .lesson-card-picture{
     width: 50rem;
@@ -167,4 +170,47 @@ div.container{
 }
 .return-button{
     margin-top: 15px;
+}
+
+/* styles.css */
+
+/* Gallery styles */
+.gallery-container {
+    position: relative;
+    max-width: 100%; /* Adjust as needed */
+    overflow: hidden; /* Ensure that images are cropped if they exceed container size */
+}
+  
+.gallery {
+    display: flex;
+    overflow-x: auto; /* Allow horizontal scrolling if images exceed container width */
+}
+  
+.gallery img {
+    width: auto;
+    height: 100%; /* Maintain aspect ratio */
+    min-width: 100%; /* Ensure image covers the entire container width */
+    object-fit: cover; /* Crop image to cover the container */
+    display: block;
+}
+  
+button.prev, button.next {
+    background: #a2d2ffff; /* Adjust button styles as needed */
+    color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #a2d2ffff;
+}
+button.prev:hover, button.next:hover {
+    background-color: rgb(124, 192, 255); /* Darken button color on hover */
+    border-color: rgb(124, 192, 255);
+    color: black;
+}
+.prev {
+    left: 10px;
+}
+  
+.next {
+    right: 10px;
+    margin-left: 370px;
 }
