@@ -2,7 +2,6 @@
 
 {% block content %}
 <div class="container">
-    <a href="/home2" class="btn btn-secondary mb-3">Back to Home</a>  <!-- Back button to home2 -->
     <div class="learn-title-heading">{{ lesson['title'] }}</div>
     <div class="row">
     {% for i in range(0, lesson['card_text_title']|length) %}
@@ -20,5 +19,6 @@
         </div>
     {% endfor %}
     </div>
+    <a href="/home2" class="btn btn-secondary mb-3">Back to Home</a>  <!-- Back button to home2 -->
 </div>
 {% endblock %}

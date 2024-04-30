@@ -5,7 +5,6 @@
 
 <div class="container">
     <h1>Match the architectural style to the Country</h1>
-    <p>Score: {{ score }}</p>
     <div class="quiz-question">
         <img src="{{ url_for('static', filename=quiz['image']) }}">
         <p>Options:</p>
@@ -51,7 +50,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         const nextQuestionBtn = document.getElementById('nextQuestionBtn');
         const isLastQuestion = {{ is_last_question | tojson }};  // Convert boolean to JavaScript-readable format
-    
+
         nextQuestionBtn.addEventListener('click', function () {
             if (isLastQuestion) {
                 window.location.href = '{{ url_for("quiz_results") }}';  // Go to results page
@@ -61,7 +60,7 @@
         });
     });
 </script>
-    
-    
+
+
 
 {% endblock %}
