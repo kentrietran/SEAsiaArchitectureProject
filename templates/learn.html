@@ -9,7 +9,7 @@
             <div class="container">
                 <div class="architectural-style-title">{{ lesson['card_text_title'][i] }}</div>
                 <div class="learn-card">
-                    <img class="img-fluid learn-card-picture" src="{{ url_for('static', filename=lesson['card_images'][i]) }}" alt="Image of {{ lesson['card_text_title'][i] }}">
+                    <img style="height: 200px;" class="img-fluid learn-card-picture" src="{{ url_for('static', filename=lesson['card_images'][i]) }}" alt="Image of {{ lesson['card_text_title'][i] }}">
                     <div class="learn-card-description">
                         <p>{{ lesson['card_text'][i] }}</p>
                         <a id="learn-more-button" class="btn btn-primary" href="/lesson/{{ lesson['lesson_id'] }}/{{ i }}">Click here to learn more</a>
@@ -23,10 +23,3 @@
     <a href="/home2" class="btn btn-secondary mb-3">Next Country</a>  <!-- Back button to home2 -->
 </div>
 {% endblock %}
-
-<style>
-    .learn-card-picture {
-        width: 100%; /* Set the width to 100% */
-        height: auto; /* Maintain aspect ratio */
-    }
-</style>
