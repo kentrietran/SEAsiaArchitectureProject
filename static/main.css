@@ -15,6 +15,13 @@ div.container-fluid{
     border-bottom: 2px #8b8c89 !important;
 }
 .return-button{
+    background-color: #f5f3f4ff !important;
+    border: 1px solid #8b8c89 !important;
+    margin-top: 15px;
+    color: black;
+}
+.return-button:hover{
+    color: black !important;
     background-color: #8b8c89 !important;
     border: 1px solid #8b8c89 !important;
 }
@@ -168,9 +175,7 @@ div.container{
     width: 50rem;
     height: max-content;
 }
-.return-button{
-    margin-top: 15px;
-}
+
 
 /* styles.css */
 
