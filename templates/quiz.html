@@ -4,9 +4,9 @@
 
 
 <div class="container">
-  <p id="click-country-text">Match the architectural style to the Country</p>
+  <p id="click-country-text">Question {{ quiz_id }}: Match the architectural style to the Country</p>
     <div class="quiz-question">
-        <img src="{{ url_for('static', filename=quiz['image']) }}">
+        <img style="height: 250px;" src="{{ url_for('static', filename=quiz['image']) }}">
         <p>Options:</p>
         <ul>
             {% for option in quiz['options'] %}
