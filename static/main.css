@@ -1,4 +1,7 @@
 /* general */
+.active-country {
+    font-weight: bold;
+}
 p{
     font-family: "Roboto serif";
     padding-bottom: 0px;

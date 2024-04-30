@@ -71,4 +71,17 @@ $(document).ready(function() {
         $('.gallery img').hide().eq(currentIndex).show();
         $('.lesson-card-caption').hide().eq(currentIndex).show();
     }
+    // Get the current URL path
+    var path = window.location.pathname;
+    
+    // Loop through navbar items
+    $('.navbar-nav .nav-link').each(function() {
+        // Get the href attribute of the navbar item
+        var href = $(this).attr('href');
+        // Check if the navbar item's href matches the current URL path
+        if (href === path) {
+            // Add class to bold the text
+            $(this).addClass('active-country');
+        }
+    });
 });
