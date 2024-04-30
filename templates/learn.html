@@ -19,7 +19,24 @@
         </div>
     {% endfor %}
     </div>
-    <a href="/home2" class="btn btn-secondary mb-3">Back to Home</a>  <!-- Back button to home2 -->
-    <a href="/home2" class="btn btn-secondary mb-3">Next Country</a>  <!-- Back button to home2 -->
+
+    
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-auto">
+                <a href="/home2" class="btn btn-secondary mb-3">Back to Home</a>  <!-- Back button to home2 -->
+                {% if previous_lesson_id %}
+                    <a href="{{ url_for('learn', lesson_id=previous_lesson_id) }}" class="btn btn-secondary mb-3">Previous Country</a>
+                {% endif %}
+            </div>
+            <div class="col-auto">
+                {% if next_lesson_id %}
+                    <a href="{{ url_for('learn', lesson_id=next_lesson_id) }}" class="btn btn-secondary mb-3">Next Country</a>
+                {% else %}
+                    <a href="{{ url_for('quiz_page', quiz_id=1) }}" class="btn btn-secondary mb-3">Take Quiz</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

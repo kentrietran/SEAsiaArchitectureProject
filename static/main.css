@@ -179,7 +179,16 @@ div.container{
     width: 50rem;
     height: max-content;
 }
-
+.btn-secondary.mb-3{
+    background-color: #f5f3f4ff !important;
+    border: 1px solid #8b8c89 !important;
+    color: black;
+}
+.btn-secondary.mb-3:hover{
+    color: black !important;
+    background-color: #8b8c89 !important;
+    border: 1px solid #8b8c89 !important;
+}
 
 /* styles.css */
 
@@ -211,7 +220,12 @@ button.prev, button.next {
     border: 1px solid #a2d2ffff;
     outline: none; /* Remove the outline */
 }
-
+button.prev{
+    float: left;
+}
+button.next{
+    float:right;
+}
 button.prev:hover, button.next:hover {
     background-color: rgb(124, 192, 255); /* Darken button color on hover */
     border-color: rgb(124, 192, 255);
@@ -223,5 +237,4 @@ button.prev:hover, button.next:hover {
 
 .next {
     right: 10px;
-    margin-left: 370px;
 }

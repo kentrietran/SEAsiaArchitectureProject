@@ -22,6 +22,7 @@ $(document).ready(function() {
         }
     });
 
+    // Function to update gallery
     function updateGallery() {
         // Hide all images and captions except the one corresponding to the current index
         if (currentIndex === 0) {
@@ -30,6 +31,20 @@ $(document).ready(function() {
         } else{
             $('.prev').css('background-color', '#a2d2ffff');
             $('.prev').css('border', '1px solid #a2d2ffff');
+            // Add hover effect to buttons
+            $('.prev').hover(function() {
+                if (currentIndex === 0) {
+                    $('.prev').css('background-color', '#8b8c89');
+                } else{
+                    $('.prev').css('background-color', 'rgb(124, 192, 255)');
+                }
+            }, function() {
+                if (currentIndex === 0) {
+                    $('.prev').css('background-color', '#8b8c89');
+                } else{
+                    $('.prev').css('background-color', '#a2d2ffff');
+                }
+            });
         }
     
         if(currentIndex === totalImages - 1){
@@ -38,6 +53,20 @@ $(document).ready(function() {
         } else{
             $('.next').css('background-color', '#a2d2ffff');
             $('.next').css('border', '1px solid #a2d2ffff');
+            // Add hover effect to buttons
+            $('.next').hover(function() {
+                if (currentIndex === totalImages - 1) {
+                    $('.next').css('background-color', '#8b8c89');
+                } else{
+                    $('.next').css('background-color', 'rgb(124, 192, 255)');
+                }
+            }, function() {
+                if (currentIndex === totalImages - 1) {
+                    $('.next').css('background-color', '#8b8c89');
+                } else{
+                    $('.next').css('background-color', '#a2d2ffff');
+                }
+            });
         }
         $('.gallery img').hide().eq(currentIndex).show();
         $('.lesson-card-caption').hide().eq(currentIndex).show();

@@ -93,7 +93,19 @@ def home2():
 def learn(lesson_id):
     lesson = lessons.get(lesson_id)
     if lesson:
-        return render_template('learn.html', lesson=lesson)
+        lesson_ids = sorted(lessons.keys(), key=int)
+        current_index = lesson_ids.index(lesson_id)
+        print("Current index:", current_index)
+        
+        next_lesson_id = None
+        previous_lesson_id = None
+        
+        if current_index < len(lesson_ids) - 1:
+            next_lesson_id = int(lesson_id) + 1
+        if current_index > 0:
+            previous_lesson_id = int(lesson_id) - 1
+        
+        return render_template('learn.html', lesson=lesson, next_lesson_id=next_lesson_id, previous_lesson_id=previous_lesson_id)
     else:
         return "Lesson not found", 404
 
