@@ -15,7 +15,7 @@
                     <div class="lesson-card gallery-container">
                         {% for i in range(0, lesson['images'][index]|length) %}
                             <div class="gallery">
-                                <img class="img-fluid lesson-card-picture" src="{{ url_for('static', filename=lesson['images'][index][i]) }}" alt="{{ lesson['image_captions'][index][i] }}">
+                                <img style="height: 250px;" class="img-fluid lesson-card-picture" src="{{ url_for('static', filename=lesson['images'][index][i]) }}" alt="{{ lesson['image_captions'][index][i] }}">
                             </div>
                             <div class="lesson-card-caption">
                                 <p>{{ lesson['image_captions'][index][i] }}</p>

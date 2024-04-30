@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container-fluid">
-    <h4>Match the Architectural Style to the Country</h4>
+  <p id="click-country-text">"Match the architectural style to the Country" Quiz Results</p>
     <p>Thank you for completing the quiz! Here are your results:</p>
     <div class="results">
         {% for question_id in quiz_answers.keys()|sort %}
