@@ -3,6 +3,9 @@ p{
     font-family: "Roboto serif";
     padding-bottom: 0px;
 }
+h1{
+  font-family: 'Roboto serif';
+}
 
 div.container-fluid{
     margin: 0;
@@ -85,7 +88,7 @@ img.img-fluid.country-map-image:hover{
 .zoom {
     transition: transform .2s; /* Animation */
 }
-  
+
 .zoom:hover {
     transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
@@ -95,6 +98,7 @@ img.img-fluid.country-map-image:hover{
 
 div.container{
     padding: 0px 0px;
+    font-family: 'Roboto serif';
 }
 .learn-title-heading{
     font-size: 2rem; /* Adjust as needed */
@@ -185,12 +189,12 @@ div.container{
     max-width: 100%; /* Adjust as needed */
     overflow: hidden; /* Ensure that images are cropped if they exceed container size */
 }
-  
+
 .gallery {
     display: flex;
     overflow-x: auto; /* Allow horizontal scrolling if images exceed container width */
 }
-  
+
 .gallery img {
     width: auto;
     height: 100%; /* Maintain aspect ratio */
@@ -198,7 +202,7 @@ div.container{
     object-fit: cover; /* Crop image to cover the container */
     display: block;
 }
-  
+
 button.prev, button.next {
     background: #a2d2ffff; /* Adjust button styles as needed */
     color: black;
@@ -216,7 +220,7 @@ button.prev:hover, button.next:hover {
 .prev {
     left: 10px;
 }
-  
+
 .next {
     right: 10px;
     margin-left: 370px;
