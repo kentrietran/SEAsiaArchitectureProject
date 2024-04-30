@@ -200,7 +200,9 @@ button.prev, button.next {
     padding: 10px 20px;
     cursor: pointer;
     border: 1px solid #a2d2ffff;
+    outline: none; /* Remove the outline */
 }
+
 button.prev:hover, button.next:hover {
     background-color: rgb(124, 192, 255); /* Darken button color on hover */
     border-color: rgb(124, 192, 255);
