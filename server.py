@@ -36,7 +36,7 @@ lessons = {
     "card_text_title": ["Pitched Roofs", "Malaysian Longhouse", "Peranakan architecture"],
     "card_text": ["Pitched roof architecture in Malaysia typically features steeply sloped roofs with gable ends.", "Typically constructed from bamboo and wood, these longhouses are designed to accommodate multiple families.", "Peranakan architecture blends Chinese, Malay, and European influences during the colonial period."],
     "texts": ["Pitched roof architecture in Malaysia typically features steeply sloped roofs with gable ends. These roofs, often constructed using traditional materials like timber or thatch, are designed to withstand the tropical climate, heavy rainfall, and provide natural ventilation. They are commonly found in various traditional Malay houses and reflect the cultural and environmental influences on Malaysian architecture.", "The Malaysian longhouse is a traditional dwelling common among indigenous communities in Malaysia, such as the Iban, Bidayuh, and Orang Asli. It is a communal dwelling characterized by its elongated structure, built on stilts and often stretching for significant lengths. Typically constructed from bamboo, wood, and thatch, these longhouses are designed to accommodate multiple families within separate living spaces called biliks, connected by a common veranda known as the ruai. The longhouse serves as a central hub for social activities, ceremonies, and community gatherings, reflecting the close-knit and communal lifestyle of the indigenous peoples of Malaysia.", "Peranakan architecture reflects the unique cultural fusion of Chinese, Malay, and European influences, especially prominent during the colonial period. Peranakan houses in Malaysia often showcase distinctive features such as vibrant colors, intricate tile work, ornate carvings, and louvred windows, contributing to the rich architectural heritage of the country."],
-    "images": [["images/pitchedroof1.jpeg", "images/pitchedroof2.jpeg"],["images/lh1.jpeg", "images/lh2.jpeg"], ["images/peranakan1.jpeg", "images/peranakan2.jpeg"]],
+    "images": [["images/pitchedroof1.jpeg", "images/pitchedroof2.png"],["images/lh1.jpeg", "images/lh2.jpeg"], ["images/peranakan1.jpeg", "images/peranakan2.jpeg"]],
     "image_captions": [["Pitched Roofs", "Pitched Roofs"], ["Malaysian Longhouse", "Malaysian Longhouse"], ["Peranakan architecture", "Peranakan architecture"]],
 },
 "4":{
@@ -96,15 +96,15 @@ def learn(lesson_id):
         lesson_ids = sorted(lessons.keys(), key=int)
         current_index = lesson_ids.index(lesson_id)
         print("Current index:", current_index)
-        
+
         next_lesson_id = None
         previous_lesson_id = None
-        
+
         if current_index < len(lesson_ids) - 1:
             next_lesson_id = int(lesson_id) + 1
         if current_index > 0:
             previous_lesson_id = int(lesson_id) - 1
-        
+
         return render_template('learn.html', lesson=lesson, next_lesson_id=next_lesson_id, previous_lesson_id=previous_lesson_id)
     else:
         return "Lesson not found", 404
