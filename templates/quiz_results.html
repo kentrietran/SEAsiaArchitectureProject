@@ -2,31 +2,33 @@
 
 {% block content %}
 <div class="container-fluid">
-  <p id="click-country-text">"Match the architectural style to the Country" Quiz Results</p>
-    <p>Thank you for completing the quiz! Here are your results:</p>
-    <div class="results">
+    <p id="click-country-text">Quiz Results</p>
+    <h5 style="text-align:center;padding-bottom: 15px;font-weight: bold;">Your Score: {{ score }}</h5>
+    <div class="results container">
         {% for question_id in quiz_answers.keys()|sort %}
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Question {{ question_id }}</h5>
-                <img src="{{ url_for('static', filename=quiz[question_id]['image']) }}" class="card-img-top" alt="Architectural Style Image">
-                <p class="card-text">Your Answer: {{ quiz_answers[question_id] }}</p>
-                <p class="card-text">Correct Answer: {{ quiz[question_id]['answer'] }}</p>
-                <p class="card-text">
-                    {% if quiz_answers[question_id] == quiz[question_id]['answer'] %}
-                    <span class="text-success">Correct!</span>
-                    {% else %}
-                    <span class="text-danger">Incorrect!</span>
-                    Explanation: {{ quiz[question_id]['explanation'] }}
-                    {% endif %}
-                </p>
+        <div class="row ">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="card mb-3" style="width: min-content;">
+                    <div class="card-body">
+                        <h5 class="card-title">Question {{ question_id }}</h5>
+                        <img style="height: 300px; width: 500px;margin-bottom: 15px;" src="{{ url_for('static', filename=quiz[question_id]['image']) }}" class="card-img-top" alt="Architectural Style Image">
+                        <p class="card-text">Your Answer: {{ quiz_answers[question_id] }}</p>
+                        <p class="card-text">Correct Answer: {{ quiz[question_id]['answer'] }}</p>
+                        <p class="card-text">
+                            {% if quiz_answers[question_id] == quiz[question_id]['answer'] %}
+                            <span class="text-success">Correct!</span>
+                            Explanation: {{ quiz[question_id]['explanation'] }}
+                            {% else %}
+                            <span class="text-danger">Incorrect!</span>
+                            Explanation: {{ quiz[question_id]['explanation'] }}
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
         {% endfor %}
     </div>
-    <div>
-        <h5>Your Score: {{ score }}</h5>
-    </div>
-    <a id="home-start-button" href="{{ url_for('home') }}" class="btn btn-primary">Start Over</a>
+    <a style="margin-bottom: 30px;" id="home-start-button" href="{{ url_for('home') }}" class="btn btn-primary">Start Over</a>
 </div>
 {% endblock %}
