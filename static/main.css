@@ -193,8 +193,6 @@ div.container{
     border: 1px solid #8b8c89 !important;
 }
 
-/* styles.css */
-
 /* Gallery styles */
 .gallery-container {
     position: relative;
@@ -240,4 +238,22 @@ button.prev:hover, button.next:hover {
 
 .next {
     right: 10px;
+}
+
+/* quiz.html */
+
+#quiz-submit-button{
+    background-color: #a2d2ffff; /* Change button color to green */
+    color: black; /* Text color */
+    border-color: #a2d2ffff; /* Border color */
+    font-family: 'Roboto serif';
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    margin-left: 15px;
+}
+#quiz-submit-button.btn-primary:hover {
+    background-color: rgb(124, 192, 255); /* Darken button color on hover */
+    border-color: rgb(124, 192, 255);
+    color: black;
 }

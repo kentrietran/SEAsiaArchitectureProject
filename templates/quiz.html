@@ -4,24 +4,28 @@
 
 
 <div class="container">
-  <p id="click-country-text">Question {{ quiz_id }}: Match the architectural style to the Country</p>
-    <div class="quiz-question">
-        <img style="height: 250px;" src="{{ url_for('static', filename=quiz['image']) }}">
-        <p>Options:</p>
-        <ul>
-            {% for option in quiz['options'] %}
-            <li>{{ option }}</li>
-            {% endfor %}
-        </ul>
-        <form id="quizForm" method="post">
-            <label for="answer">Select your answer:</label>
-            <select name="option" id="answer">
+    <p id="click-country-text">Question {{ quiz_id }} out of {{ quiz|length }}: Match the architectural style to the Country</p>
+    <div class="row quiz-question">
+        <div class="col-6 text-center">
+            <img style="height: 250px;" src="{{ url_for('static', filename=quiz['image']) }}">
+        </div>
+        <div class="col-6">
+            <p>Options:</p>
+            <ul>
                 {% for option in quiz['options'] %}
-                <option value="{{ option }}">{{ option }}</option>
+                <li>{{ option }}</li>
                 {% endfor %}
-            </select>
-            <button id="home-start-button" type="submit" class="btn btn-primary">Submit</button>
-        </form>
+            </ul>
+            <form id="quizForm" method="post">
+                <label for="answer">Select your answer:</label>
+                <select name="option" id="answer">
+                    {% for option in quiz['options'] %}
+                    <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+                <button id="quiz-submit-button" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -60,7 +64,5 @@
         });
     });
 </script>
-
-
 
 {% endblock %}
