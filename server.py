@@ -77,6 +77,30 @@ quiz = {
 "answer": "Malaysia",
 "explanation": "This building is bright and colorful, displaying cultural fusion of Chinese, Malay, and European influences, which is commonly found in Malaysian Peranakan architecture.",
 },
+"5": {
+"image": "images/quiz3.jpeg",
+"options": ["Indonesia", "Thailand", "Philippines", "Malaysia"],
+"answer": "Malaysia",
+"explanation": "This building is bright and colorful, displaying cultural fusion of Chinese, Malay, and European influences, which is commonly found in Malaysian Peranakan architecture.",
+},
+"6": {
+"image": "images/quiz3.jpeg",
+"options": ["Indonesia", "Thailand", "Philippines", "Malaysia"],
+"answer": "Malaysia",
+"explanation": "This building is bright and colorful, displaying cultural fusion of Chinese, Malay, and European influences, which is commonly found in Malaysian Peranakan architecture.",
+},
+"7": {
+"image": "images/quiz3.jpeg",
+"options": ["Indonesia", "Thailand", "Philippines", "Malaysia"],
+"answer": "Malaysia",
+"explanation": "This building is bright and colorful, displaying cultural fusion of Chinese, Malay, and European influences, which is commonly found in Malaysian Peranakan architecture.",
+},
+"8": {
+"image": "images/quiz3.jpeg",
+"options": ["Indonesia", "Thailand", "Philippines", "Malaysia"],
+"answer": "Malaysia",
+"explanation": "This building is bright and colorful, displaying cultural fusion of Chinese, Malay, and European influences, which is commonly found in Malaysian Peranakan architecture.",
+},
 }
 
 # ROUTES
