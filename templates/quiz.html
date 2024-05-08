@@ -4,7 +4,7 @@
 
 
 <div class="container">
-    <p id="click-country-text">Question {{ quiz_id }} out of {{ quiz|length }}: Match the architectural style to the Country</p>
+    <p id="click-country-text">Question {{ quiz_id }} out of {{ total_questions }}: Match the architectural style to the Country</p>
     <div class="row quiz-question">
         <div class="col-6 text-center">
             <img style="height: 250px;" src="{{ url_for('static', filename=quiz['image']) }}">

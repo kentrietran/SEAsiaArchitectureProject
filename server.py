@@ -158,12 +158,13 @@ def quiz_page(quiz_id):
             num_correct = sum(1 for qid, answer in quiz_answers.items() if quiz[qid]['answer'] == answer)
             total_questions = len(quiz)
             score = f"{num_correct}/{total_questions}"
-            return render_template('quiz_results.html', score=score, quiz_answers=quiz_answers, quiz=quiz)
+            return render_template('quiz_results.html', score=score, quiz_answers=quiz_answers, quiz=quiz, total_questions=total_questions)
         else:
             return redirect(url_for('quiz_page', quiz_id=next_quiz_id))
 
     is_last_question = (quiz_id == len(quiz))
-    return render_template('quiz.html', quiz=current_quiz, quiz_id=quiz_id, is_last_question=is_last_question)
+    total_questions = len(quiz)  # Get the total number of quiz questions
+    return render_template('quiz.html', quiz=current_quiz, quiz_id=quiz_id, is_last_question=is_last_question, total_questions=total_questions)
 
 
 @app.route('/quiz_results')
